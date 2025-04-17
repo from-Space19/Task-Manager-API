@@ -1,4 +1,3 @@
-const bcrypt = require('bcrypt');
 const {comparePassword} = require('../helpers/passwordHelper');
 const generateToken = require('../helpers/tokenHelper');
 const User = require('../models/user');
@@ -22,7 +21,6 @@ const userLogin = async(req,res) => {
         }
 
         const matchResult = await comparePassword(password,user.password);
-        console.log("compare Password : ",matchResult);
 
         if(!matchResult){
             console.log("entered match pass")

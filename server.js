@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use('/api/v0/image',imageRouter);
 app.use('/api/v0/user',userRouter);
-app.use('/api/v0/user',authRouter);
+app.use('/api/v0/auth',authRouter);
 
 const PORT = process.env.PORT;
 

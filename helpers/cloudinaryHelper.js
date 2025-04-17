@@ -9,7 +9,7 @@ const cloudinaryUploader = async (filePath) => {
             url : uploadedFile.url
         }
     }catch(error){
-        fs.unlinkSync(filePath);
+        // fs.unlinkSync(filePath);
         console.log("error occured while uploading image to cloudinary : ",error);
         throw new Error(`Error occured while uploading image  : ${error.message}`)
     }
@@ -17,7 +17,7 @@ const cloudinaryUploader = async (filePath) => {
 
 const deleteFromCloudinary = async(publicId) => {
     try{
-        const removedPic = await cloudinary.uploader.destroy(publicId);
+        await cloudinary.uploader.destroy(publicId);
     }catch(error){
         console.log("Error deleting image from cloudinary : ",error);
     }
